@@ -88,6 +88,9 @@ build_dir=/tmp/sphinxnotes-pages
 mkdir -p $build_dir || true
 echo Temp directory \"$build_dir\" is created
 
+echo ::group:: Creating doc dir
+mkdir -p "$doc_dir"
+
 echo ::group:: Running Sphinx builder
 if ! sphinx-build -b html $INPUT_SPHINX_BUILD_OPTIONS "$doc_dir" "$build_dir"; then
     # See: https://github.com/sphinx-notes/pages/issues/28
